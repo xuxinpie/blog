@@ -2,6 +2,7 @@
  * Created by Xinux on 9/21/15.
  */
 var mongodb = require('./db');
+var markdown = require('markdown').markdown;
 
 function Post(name, title, post) {
 		this.name = name;
