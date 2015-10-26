@@ -86,7 +86,10 @@ Post.get = function (name, callback) {
 								if (err) {
 										return callback(err); //Error! return error info
 								}
-
+								//解析 markdown 为 html
+								docs.forEach(function (doc) {
+										doc.post = markdown.toHTML(doc.post);
+								});
 								callback(null, docs); // Succeeded! return query result in type of Array
 						});
 				});

@@ -11,6 +11,8 @@ var routes = require('./routes/index');
 var settings = require('./settings');
 //flash 是一个在 session 中用于存储信息的特定区域。信息写入 flash ，下一次显示完毕后即被清除
 var flash = require('connect-flash');
+//实现multer文件上传功能
+var multer  = require('multer');
 
 var app = express();
 
@@ -48,6 +50,14 @@ app.use(session({
 app.use(flash());
 //set static file directory
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(multer({
+		dest:'./public/images',
+		//修改文件上传后的文件名
+		rename: function(fieldName, fileName) {
+				return fileName;
+		}
+}));
 
 //调用了index.js导出的函数
 routes(app);
