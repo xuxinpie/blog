@@ -1,94 +1,146 @@
 * {
-		padding: 0;
-		margin: 0;
+		padding : 0;
+		margin  : 0;
 }
 
 .clearfix:after {
-		content: " ";
-		display: block;
-		clear: both;
-		height: 0;
+		content : " ";
+		display : block;
+		clear   : both;
+		height  : 0;
 }
 
 .clearfix {
-		zoom: 1;
+		zoom : 1;
 }
 
 /* body选择器中声明Font-size=62.5%, 这样1em = 10px*/
 body {
-		font-size: 62.5%;
-		margin: 2em auto;
-		padding: 0 2em;
-		width: 600px;
-		font-family: "lantinghei sc", "Microsoft YaHei", "微软雅黑", sans-serif;
+		font-size   : 62.5%;
+		margin      : 2em auto;
+		padding     : 0 2em;
+		width       : 600px;
+		font-family : "lantinghei sc", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 
 p {
-		line-height: 24px;
-		margin: 1em 0;
+		line-height : 24px;
+		margin      : 1em 0;
 }
 
 header {
-		padding: .5em 0;
-		border-bottom: 1px solid #cccccc;
+		padding       : .5em 0;
+		border-bottom : 1px solid #cccccc;
 }
 
 nav {
-		float: left;
-		font-size: 1em;
-		margin-left: -20em;
-		text-transform: uppercase;
-		width: 15em;
-		text-align: right;
+		float          : left;
+		font-size      : 1em;
+		margin-left    : -20em;
+		text-transform : uppercase;
+		width          : 15em;
+		text-align     : right;
 }
 
 nav a {
-		font-size: 14px;
-		display: block;
-		text-decoration: none;
-		padding: .7em .1em;
-		color: #00B7FF;
+		font-size       : 14px;
+		display         : block;
+		text-decoration : none;
+		padding         : .7em .1em;
+		color           : #00B7FF;
 }
 
 nav a:hover {
-		background-color: #00B6E3;
-		color: #f9f9f9;
-		-webkit-transition: color .2s linear;
+		background-color   : #00B6E3;
+		color              : #f9f9f9;
+		-webkit-transition : color .2s linear;
 }
 
 article {
-		font-size: 16px;
-		padding-top: .5em;
+		font-size   : 16px;
+		padding-top : .5em;
 }
 
 article form {
-		width: 500px;
-		float: left;
+		width : 500px;
+		float : left;
 }
 
 article .form-horizontal .form-group .control-label {
-		font-size: 14px;
-		width: 100px;
+		font-size : 14px;
+		width     : 100px;
 }
 
 article .form-group input.form-control {
-		font-size: 12px;
+		font-size : 12px;
+}
+
+.form-group {
+		margin-bottom : 15px;
+		position : relative;
+}
+
+.label-required {
+		position : relative;
+}
+
+.label-required:before {
+		content: '*';
+		position: absolute;
+		left: -15px;
+		top: 7px;
+		height: 8px;
+		font-size: 14px;
+		line-height: 10px;
+		color: #f33
+}
+
+.form-group .form-tip {
+		display: inline-block;
+		position : absolute;
+		top : 8px;
+}
+
+/*article .form-group .form-tip {*/
+/*display : inline-block;*/
+/*}*/
+
+.has-error .control-label, .has-error .form-control {
+		color        : #f4333c;
+		border-color : #f4333c;
+}
+
+.has-error .form-tip {
+		color     : #f4333c;
+		font-size : 12px;
 }
 
 article .form-group div.col-sm-4 {
-		padding-left: 0;
+		padding-left : 0;
 }
 
 article a {
-		color: #dd0000;
-		text-decoration: none;
+		color           : #dd0000;
+		text-decoration : none;
 }
 
 article a:hover {
-		color: #333333;
-		text-decoration: underline;
+		color           : #333333;
+		text-decoration : underline;
 }
 
 .info {
-		font-size: 14px;
+		font-size : 14px;
+}
+
+.btn.btn-blue {
+		background-color : #0ae;
+		border-color     : #0ae;
+		color            : #fff;
+}
+
+.btn.btn-blue:hover {
+		color            : #fff;
+		background-color : #0091cb;
+		border-color     : #0091cb;
 }

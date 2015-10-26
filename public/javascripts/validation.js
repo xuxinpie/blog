@@ -38,11 +38,11 @@ $(function () {
 				//验证输入姓名
 				if ($('input[name="name"]').val() === '') {
 						$('input[name="name"]').parent().parent().attr('class', 'form-group has-error');
-						$('input[name="name"]').siblings('.form-tip').text('用户名不能为空');
+						$('input[name="name"]').parent().siblings('.form-tip').text('用户名不能为空');
 						ok1 = false;
 				} else if ($('input[name="password"]').val().length > 20) {
 						$('input[name="name"]').parent().parent().attr('class', 'form-group has-error');
-						$('input[name="name"]').siblings('.form-tip').text('用户名不能超过20个字符');
+						$('input[name="name"]').parent().siblings('.form-tip').text('用户名不能超过20个字符');
 						ok1 = false;
 				} else {
 						ok1 = true;
@@ -51,11 +51,11 @@ $(function () {
 				//验证密码
 				if ($('input[name="password"]').val() === '') {
 						$('input[name="password"]').parent().parent().attr('class', 'form-group has-error');
-						$('input[name="password"]').siblings('.form-tip').text('请输入密码');
+						$('input[name="password"]').parent().siblings('.form-tip').text('请输入密码');
 						ok2 = false;
 				} else if ($('input[name="password"]').val().length < 6) {
 						$('input[name="password"]').parent().parent().attr('class', 'form-group has-error');
-						$('input[name="password"]').siblings('.form-tip').text('密码不能小于6个字符');
+						$('input[name="password"]').parent().siblings('.form-tip').text('密码不能小于6个字符');
 						ok2 = false;
 				} else {
 						ok2 = true;
@@ -64,11 +64,11 @@ $(function () {
 				//验证确认密码
 				if ($('input[name="password-repeat"]').val() === '') {
 						$('input[name="password-repeat"]').parent().parent().attr('class', 'form-group has-error');
-						$('input[name="password-repeat"]').siblings('.form-tip').text('请输入确认密码');
+						$('input[name="password-repeat"]').parent().siblings('.form-tip').text('请输入确认密码');
 						ok3 = false;
 				} else if ($('input[name="password-repeat"]').val() !== $('input[name="password"]').val()) {
 						$('input[name="password-repeat"]').parent().parent().attr('class', 'form-group has-error');
-						$('input[name="password-repeat"]').siblings('.form-tip').text('两次输入密码不一致!');
+						$('input[name="password-repeat"]').parent().siblings('.form-tip').text('两次输入密码不一致!');
 						ok3 = false;
 				} else {
 						ok3 = true;
@@ -77,11 +77,11 @@ $(function () {
 				//验证邮箱地址
 				if ($('input[name="email"]').val() === '') {
 						$('input[name="email"]').parent().parent().attr('class', 'form-group has-error');
-						$('input[name="email"]').siblings('.form-tip').text('邮箱地址不能为空');
+						$('input[name="email"]').parent().siblings('.form-tip').text('邮箱地址不能为空');
 						ok4 = false;
 				} else if (!checkEmail($('input[name="email"]').val())) {
 						$('input[name="email"]').parent().parent().attr('class', 'form-group has-error');
-						$('input[name="email"]').siblings('.form-tip').text('邮箱地址格式有误!');
+						$('input[name="email"]').parent().siblings('.form-tip').text('邮箱地址格式有误!');
 						ok4 = false;
 				} else {
 						ok4 = true;
@@ -98,56 +98,56 @@ $(function () {
 		// 验证姓名
 		$('input[name="name"]').focus(function () {
 				$(this).parent().parent().attr('class', 'form-group');
-				$(this).siblings('.form-tip').text('');
+				$(this).parent().siblings('.form-tip').text('');
 		}).blur(function () {
 				if ($(this).val() === '') {
 						$(this).parent().parent().attr('class', 'form-group has-error');
-						$(this).siblings('.form-tip').text('用户名不能为空');
+						$(this).parent().siblings('.form-tip').text('用户名不能为空');
 				} else if ($(this).val().length > 20) {
 						$(this).parent().parent().attr('class', 'form-group has-error');
-						$(this).siblings('.form-tip').text('用户名不能超过20个字符');
+						$(this).parent().siblings('.form-tip').text('用户名不能超过20个字符');
 				}
 		});
 
 		// 验证密码
 		$('input[name="password"]').focus(function () {
 				$(this).parent().parent().attr('class', 'form-group');
-				$(this).siblings('.form-tip').text('');
+				$(this).parent().siblings('.form-tip').text('');
 		}).blur(function () {
 				if ($(this).val() === '') {
 						$(this).parent().parent().attr('class', 'form-group has-error');
-						$(this).siblings('.form-tip').text('请输入密码');
+						$(this).parent().siblings('.form-tip').text('请输入密码');
 				} else if ($(this).val().length < 6) {
 						$(this).parent().parent().attr('class', 'form-group has-error');
-						$(this).siblings('.form-tip').text('密码不能小于6个字符');
+						$(this).parent().siblings('.form-tip').text('密码不能小于6个字符');
 				}
 		});
 
 		// 验证确认密码
 		$('input[name="password-repeat"]').focus(function () {
 				$(this).parent().parent().attr('class', 'form-group');
-				$(this).siblings('.form-tip').text('');
+				$(this).parent().siblings('.form-tip').text('');
 		}).blur(function () {
 				if ($(this).val() === '') {
 						$(this).parent().parent().attr('class', 'form-group has-error');
-						$(this).siblings('.form-tip').text('请输入确认密码');
+						$(this).parent().siblings('.form-tip').text('请输入确认密码');
 				} else if ($(this).val() !== $('input[name="password"]').val()) {
 						$(this).parent().parent().attr('class', 'form-group has-error');
-						$(this).siblings('.form-tip').text('两次输入密码不一致!');
+						$(this).parent().siblings('.form-tip').text('两次输入密码不一致!');
 				}
 		});
 
 		// 验证邮箱
 		$('input[name="email"]').focus(function () {
 				$(this).parent().parent().attr('class', 'form-group');
-				$(this).siblings('.form-tip').text('');
+				$(this).parent().siblings('.form-tip').text('');
 		}).blur(function () {
 				if ($(this).val() === '') {
 						$(this).parent().parent().attr('class', 'form-group has-error');
-						$(this).siblings('.form-tip').text('邮箱地址不能为空');
+						$(this).parent().siblings('.form-tip').text('邮箱地址不能为空');
 				} else if (!checkEmail($(this).val())) {
 						$(this).parent().parent().attr('class', 'form-group has-error');
-						$(this).siblings('.form-tip').text('邮箱地址格式有误!');
+						$(this).parent().siblings('.form-tip').text('邮箱地址格式有误!');
 				}
 		});
 

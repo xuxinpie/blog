@@ -2,8 +2,6 @@
 var crypto = require('crypto'),
 		User = require('../models/user.js'),
 		Post = require('../models/post.js');
-
-
 module.exports = function (app) {
 
 		/* GET home page. */
@@ -151,6 +149,22 @@ module.exports = function (app) {
 				req.session.user = null;
 				req.flash('success', 'Logout Successfully');
 				res.redirect('/');  //redirect to the main page when logout successfully
+		});
+
+		app.get('/upload', checkLogin);
+		app.get('/upload', function (req, res) {
+				res.render('upload', {
+						title: '文件上传',
+						user: req.session.user,
+						success: req.flash('success').toString(),
+						error: req.flash('error').toString()
+				});
+		});
+
+		app.post('/upload', checkLogin);
+		app.post('/upload', function (req, res) {
+				req.flash('success', '文件上传成功!');
+				res.redirect('/upload');
 		});
 
 		function checkLogin(req, res, next) {
