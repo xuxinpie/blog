@@ -22,7 +22,7 @@ $(function () {
 		});
 
 		function checkEmail(mailAddress) {
-				var emailReg = /^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+				var emailReg = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 				var checkResult = emailReg.test(mailAddress);
 				return checkResult;
 		}
