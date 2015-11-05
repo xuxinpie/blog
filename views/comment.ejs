@@ -1,0 +1,38 @@
+<br/>
+<!-- 判断forEach对象是否存在 -->
+<!-- 用"="号输出,就会被escapge转义编码 -->
+<!-- 用"-"输出原始内容, 不会被escape -->
+
+<div class="comments-header">COMMENTS(
+	<% if (doc.comments) { %>
+		<%= doc.comments.length %>
+	<%} else {%>
+		0
+	<% } %>
+	)
+</div>
+<div class="comments">
+	<% if (doc.comments) { %>
+	<% doc.comments.forEach(function (comment, index) { %>
+	<div class="comment">
+		<div class="comment-title"><a href="<%= comment.website %>"><%= comment.name %></a>
+			<span class="info"> 回复于 <%= comment.time %></span></div>
+		<div class="comment-content"><%- comment.content %></div>
+	</div>
+	<% }) %>
+	<% } %>
+</div>
+
+<form id="J_PostForm" method="post">
+	<% if (user) { %>
+	<input type="hidden" name="name" value="<%= user.name %>"/><br/>
+	<input type="hidden" name="email" value="<%= user.email %>"/><br/>
+	<input type="hidden" name="website" value="/u/<%= user.name %>"/><br/>
+	<% } else { %>
+	<input type="hidden" name="name"/><br/>
+	<input type="hidden" name="email"/><br/>
+	<input type="hidden" name="website" value="http://"/><br/>
+	<% } %>
+	<textarea name="content" rows="5" cols="60"></textarea><br/>
+	<button type="submit" class="btn btn-blue">留言</button>
+</form>

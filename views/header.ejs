@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8"/>
-    <title>Blog</title>
-    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+	<meta charset="UTF-8"/>
+	<title>Blog</title>
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
+<div class="main">
+	<header>
+		<h1><%= title %></h1>
+	</header>
 
-<header>
-    <h1><%= title %></h1>
-</header>
+	<nav>
+		<span><a title="主页" href="/">home</a></span>
+		<% if (user) { %>
+		<span><a title="上传" href="/upload">upload</a></span>
+		<span><a title="发表" href="/post">post</a></span>
+		<span><a title="登出" href="/logout">logout</a></span>
+		<% } else { %>
+		<span><a title="登录" href="/login">login</a></span>
+		<span><a title="注册" href="/reg">register</a></span>
+		<% } %>
 
-<nav>
-    <span><a title="主页" href="/">home</a></span>
-    <% if (user) { %>
-    <span><a title="上传" href="/upload">upload</a></span>
-    <span><a title="发表" href="/post">post</a></span>
-    <span><a title="登出" href="/logout">logout</a></span>
-    <% } else { %>
-    <span><a title="登录" href="/login">login</a></span>
-    <span><a title="注册" href="/reg">register</a></span>
-    <% } %>
+	</nav>
 
-</nav>
-
-<article class="clearfix">
-    <% if (success) { %>
-        <div><%= success %></div>
-    <% } %>
-    <% if (error) { %>
-        <div><%= error %> </div>
-    <% } %>
+	<article class="clearfix">
+		<% if (success) { %>
+		<div><%= success %></div>
+		<% } %>
+		<% if (error) { %>
+		<div><%= error %> </div>
+		<% } %>

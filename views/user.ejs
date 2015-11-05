@@ -1,10 +1,12 @@
 <%- include header %>
+<% if (posts) { %>
 <% posts.forEach(function (post, index) { %>
-<p><h2><a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><%= post.title %></a></h2></p>
+<p><h2><a class="article-title" href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><%= post.title %></a></h2></p>
 <p class="info">
-	作者：<a href="/u/<%= post.name %>"><%= post.name %></a> |
+	作者：<a class="article-author" href="/u/<%= post.name %>"><%= post.name %></a> |
 	日期：<%= post.time.minute %>
 </p>
 <p><%- post.post %></p>
 <% }) %>
+<% } %>
 <%- include footer %>
