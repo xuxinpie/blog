@@ -1,0 +1,14 @@
+<br/>
+<div class="blog-paging">
+	<% if (!isFirstPage) { %>
+	<span class="prepage"><a title="上一页" href="?p=<%= page - 1 %>"><上一页</a></span>
+	<% } else {%>
+	<span class="prepage ft-explain"><上一页</span>
+	<% } %>
+
+	<% if (!isLastPage) { %>
+	<span class="nextpage"><a title="下一页" href="?p=<%= page + 1 %>">下一页></a></span>
+	<% } else {%>
+	<span class="nextpage ft-explain">下一页></span>
+	<% } %>
+</div>
