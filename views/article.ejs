@@ -1,13 +1,28 @@
 <%- include header %>
-<p class="info">
-	作者：<a class="article-author" href="/u/<%= doc.name %>"><%= doc.name %></a> |
-	日期：<%= doc.time.minute %>
+<div class="article-header">
+	<p class="info">
+		作者：<a class="article-author" href="/u/<%= doc.name %>"><%= doc.name %></a> |
+		日期：<%= doc.time.minute %>
+		<% if (doc.tags) { %>
+		| 标签：
+		<% doc.tags.forEach(function (tag, index) { %>
+		<% if (tag) { %>
+		<a class="tag" href="/tags/<%= tag %>"><%= tag %></a>
+		<% } %>
+		<% }) %>
+		<% } %>
+	</p>
 	<!-- 判断当前用户是否有编辑删除这篇文章的权限,非本人无法操作 -->
 	<% if (user && (user.name == doc.name)) { %>
-	<span><a class="edit" href="/edit/<%= doc.name %>/<%= doc.time.day %>/<%= doc.title %>">编辑</a></span>
-	<span><a class="edit" href="/remove/<%= doc.name %>/<%= doc.time.day %>/<%= doc.title %>">删除</a></span>
+	<div class="operation">
+		<span><a class="edit" href="/edit/<%= doc.name %>/<%= doc.time.day %>/<%= doc.title %>">编辑</a></span>
+		<span><a class="edit" href="/remove/<%= doc.name %>/<%= doc.time.day %>/<%= doc.title %>">删除</a></span>
+	</div>
+
 	<% } %>
-</p>
-<p><%- doc.post %></p>
+</div>
+<div class="article-content">
+	<p><%- doc.post %></p>
+</div>
 <%- include comment %>
 <%- include footer %>

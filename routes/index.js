@@ -3,6 +3,7 @@ var crypto = require('crypto'),
 		User = require('../models/user.js'),
 		Post = require('../models/post.js'),
 		Comment = require('../models/comment.js');
+
 module.exports = function (app) {
 
 	/* GET home page. */
@@ -152,7 +153,8 @@ module.exports = function (app) {
 	app.post('/post', checkLogin);
 	app.post('/post', function (req, res) {
 		var currentUser = req.session.user,
-				post = new Post(currentUser.name, req.body.title, req.body.post);
+				tags = [req.body.tag1, req.body.tag2, req.body.tag3],
+				post = new Post(currentUser.name, req.body.title, tags, req.body.post);
 		post.save(function (err) {
 			if (err) {
 				req.flash('error', err);
@@ -162,7 +164,6 @@ module.exports = function (app) {
 			req.flash('success', 'Publish Success!');
 			res.redirect('/'); //publish successfully and return to the main page
 		});
-
 	});
 
 	/* GET logout return to the main page */
@@ -213,6 +214,40 @@ module.exports = function (app) {
 			});
 		});
 	});*/
+
+	//文章存档页面路由
+	app.get('/archive', function (req, res) {
+		Post.getArchive(function (err, posts) {
+			if (err) {
+				req.flash('error', err);
+				return res.redirect('/');
+			}
+			res.render('archive', {
+				title: 'Archive',
+				posts: posts,
+				user: req.session.user,
+				success: req.flash('success').toString(),
+				error: req.flash('error').toString()
+			});
+		});
+	});
+
+	//根据标签查看文章页面路由
+	app.get('/tags', function (req, res) {
+		Post.getTags(function (err, posts) {
+			if (err) {
+				req.flash('error', err);
+				return res.redirect('/');
+			}
+			res.render('tags', {
+				title: "Tags",
+				posts: posts,
+				user: req.session.user,
+				success: req.flash('success').toString(),
+				error: req.flash('error').toString()
+			});
+		});
+	});
 
 	//用户页面的路由规则 get 10 articles of one user per page
 	app.get('/u/:name', function (req, res) {

@@ -142,8 +142,15 @@ article .article-author:hover {
 	text-decoration : underline;
 }
 
-.info {
+/* article page style */
+p.info {
 	font-size : 14px;
+	margin : 1em 0 0 0;
+}
+
+.article-header {
+	padding-bottom: 1em;
+	border-bottom : 1px #ccc dashed;
 }
 
 .btn.btn-blue {
@@ -170,7 +177,7 @@ article .article-author:hover {
 
 .edit:hover {
 	text-decoration    : none;
-	background-color   : #f00;
+	background-color   : #0091cb;
 	color              : #fff;
 	-webkit-transition : color .2s linear;
 }
@@ -228,7 +235,7 @@ article .article-author:hover {
 }
 
 .blog-paging .prepage.ft-explain {
-	color           : #808080;
+	color           : #999;
 	float           : left;
 	text-decoration : none;
 	padding         : .5em 1em;
@@ -236,7 +243,7 @@ article .article-author:hover {
 }
 
 .blog-paging .nextpage.ft-explain {
-	color           : #808080;
+	color           : #999;
 	float           : right;
 	text-decoration : none;
 	padding         : .5em 1em;
@@ -246,6 +253,58 @@ article .article-author:hover {
 .blog-paging .prepage a:hover, .blog-paging .nextpage a:hover {
 	text-decoration    : none;
 	color              : #ffce74;
+	-webkit-transition : color .2s linear;
+}
+
+/* archive style */
+.archive {
+	list-style  : none;
+	line-height : 28px;
+}
+
+.archive h3 {
+	margin          : 0.5em 0;
+	text-decoration : none;
+}
+
+.archive time {
+	float        : left;
+	font-size    : 14px;
+	color        : #999999;
+	margin-right : 1.2em;
+}
+
+.archive a {
+	color           : #318fd6;
+	text-decoration : none;
+}
+
+.archive a:hover {
+	color           : #ffce74;
+	text-decoration : none;
+}
+
+/* tag style */
+#tag1, #tag2, #tag3 {
+	width     : 100px;
+	text-size : 16px;
+	display   : inline;
+}
+
+.tag {
+	background-color : #ff0000;
+	border-radius    : 3px;
+	font-size        : 14px;
+	color            : #ffffff;
+	display          : inline-block;
+	padding          : 0 5px;
+	margin-bottom    : 8px;
+}
+
+.tag:hover {
+	text-decoration    : none;
+	background-color   : #ffffff;
+	color              : #000000;
 	-webkit-transition : color .2s linear;
 }
 
