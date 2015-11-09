@@ -4,10 +4,12 @@
 var mongodb = require('./db');
 var markdown = require('markdown').markdown;
 
-function Post(name, title, post) {
+function Post(name, title, tags, post) {
 	this.name = name;
 	this.title = title;
+	this.tags = tags;
 	this.post = post;
+
 }
 
 module.exports = Post;
@@ -34,7 +36,9 @@ Post.prototype.save = function (callback) {
 		name: this.name,
 		time: time,
 		title: articleTitle,
+		tags: this.tags,
 		post: this.post,
+		//写成comments: [] 会报错
 		comments: new Array()
 	};
 
@@ -99,6 +103,47 @@ Post.getAll = function (name, callback) {
 					});
 				}
 				callback(null, docs); // Succeeded! return query result in type of Array
+			});
+		});
+	});
+};
+
+//一次获取十篇文章
+Post.getTen = function(name, page, callback) {
+	//打开数据库
+	mongodb.open(function (err, db) {
+		if (err) {
+			return callback(err);
+		}
+		//读取 posts 集合
+		db.collection('posts', function (err, collection) {
+			if (err) {
+				mongodb.close();
+				return callback(err);
+			}
+			var query = {};
+			if (name) {
+				query.name = name;
+			}
+			//使用 count 返回特定查询的文档数 total
+			collection.count(query, function (err, total) {
+				//根据 query 对象查询，并跳过前 (page-1)*10 个结果，返回之后的 10 个结果
+				collection.find(query, {
+					skip: (page - 1)*10,
+					limit: 10
+				}).sort({
+					time: -1
+				}).toArray(function (err, docs) {
+					mongodb.close();
+					if (err) {
+						return callback(err);
+					}
+					//解析 markdown 为 html
+					docs.forEach(function (doc) {
+						doc.post = markdown.toHTML(doc.post);
+					});
+					callback(null, docs, total);
+				});
 			});
 		});
 	});
@@ -239,6 +284,60 @@ Post.remove = function (name, day, title, callback) {
 					return callback(err);
 				}
 				callback(null);
+			});
+		});
+	});
+};
+
+//返回所有文章存档信息
+Post.getArchive = function(callback) {
+	//打开数据库
+	mongodb.open(function (err, db) {
+		if (err) {
+			return callback(err);
+		}
+		//读取 posts 集合
+		db.collection('posts', function (err, collection) {
+			if (err) {
+				mongodb.close();
+				return callback(err);
+			}
+			//返回只包含 name、time、title 属性的文档组成的存档数组
+			collection.find({}, {
+				"name": 1,
+				"time": 1,
+				"title": 1
+			}).sort({
+				time: -1
+			}).toArray(function (err, docs) {
+				mongodb.close();
+				if (err) {
+					return callback(err);
+				}
+				callback(null, docs);
+			});
+		});
+	});
+};
+
+//返回所有标签
+Post.getTags = function (callback) {
+	mongodb.open(function (err, db) {
+		if (err) {
+			return callback(err);
+		}
+		db.collection('post', function (err, collection) {
+			if (err) {
+				mongodb.close();
+				return callback(err);
+			}
+			//distinct 用来找出给定键的所有不同值
+			collection.distinct("tags", function (err, docs) {
+				mongodb.close();
+				if (err) {
+					return callback(err);
+				}
+				callback(null, docs);
 			});
 		});
 	});

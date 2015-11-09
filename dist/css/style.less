@@ -1,0 +1,312 @@
+* {
+  padding : 0;
+  margin  : 0;
+}
+
+.clearfix:after {
+  content : " ";
+  display : block;
+  clear   : both;
+  height  : 0;
+}
+
+.clearfix {
+  zoom : 1;
+}
+
+/* body选择器中声明Font-size=62.5%, 这样1em = 10px*/
+body {
+  font-size   : 62.5%;
+  font-family : "lantinghei sc", "Microsoft YaHei", "微软雅黑", sans-serif;
+}
+
+.main {
+  margin  : 2em auto;
+  padding : 0 2em;
+  width   : 600px;
+}
+
+p {
+  line-height : 24px;
+  margin      : 1em 0;
+}
+
+header {
+  padding       : .5em 0;
+  border-bottom : 1px solid #cccccc;
+}
+
+//复写bootstrap中form-group
+.form-group {
+  margin-bottom : 15px;
+  position      : relative;
+
+  .form-tip {
+    display  : inline-block;
+    position : absolute;
+    top      : 8px;
+  }
+}
+
+nav {
+  float          : left;
+  font-size      : 1em;
+  margin-left    : -20em;
+  text-transform : uppercase;
+  width          : 15em;
+  text-align     : right;
+}
+
+nav a {
+  font-size       : 14px;
+  display         : block;
+  text-decoration : none;
+  padding         : .7em .1em;
+  color           : #00B7FF;
+}
+
+nav a:hover {
+  background-color   : #00B6E3;
+  color              : #f9f9f9;
+  -webkit-transition : color .2s linear;
+}
+
+article {
+  font-size   : 16px;
+  padding-top : .5em;
+
+  form {
+    width : 500px;
+    float : left;
+  }
+
+  .form-horizontal .form-group .control-label {
+    font-size : 14px;
+    width     : 100px;
+  }
+
+  .form-group input.form-control {
+    font-size : 12px;
+  }
+
+}
+
+.label-required {
+  position : relative;
+}
+
+.label-required:before {
+  content     : '*';
+  position    : absolute;
+  left        : -15px;
+  top         : 7px;
+  height      : 8px;
+  font-size   : 14px;
+  line-height : 10px;
+  color       : #f33
+}
+
+/*article .form-group .form-tip {*/
+/*display : inline-block;*/
+/*}*/
+
+.has-error .control-label, .has-error .form-control {
+  color        : #f4333c;
+  border-color : #f4333c;
+}
+
+.has-error .form-tip {
+  color     : #f4333c;
+  font-size : 12px;
+}
+
+article .form-group div.col-sm-4 {
+  padding-left : 0;
+}
+
+article .article-title {
+  color           : #318fd6;
+  text-decoration : none;
+}
+
+article .article-title:hover {
+  color           : #ffce74;
+  text-decoration : none;
+}
+
+article .article-author {
+  color           : #ffce74;
+  text-decoration : none;
+}
+
+article .article-author:hover {
+  /*color           : #ffce74;*/
+  text-decoration : underline;
+}
+
+/* article page style */
+p.info {
+  font-size : 14px;
+  margin    : 1em 0 0 0;
+}
+
+.article-header {
+  padding-bottom : 1em;
+  border-bottom  : 1px #ccc dashed;
+}
+
+.btn.btn-blue {
+  background-color : #0ae;
+  border-color     : #0ae;
+  color            : #fff;
+}
+
+.btn.btn-blue:hover {
+  color            : #fff;
+  background-color : #0091cb;
+  border-color     : #0091cb;
+}
+
+/*article edit & delete style*/
+.edit {
+  margin           : 3px;
+  padding          : 2px 5px;
+  border-radius    : 3px;
+  background-color : #f3f3f3;
+  color            : #333;
+  font-size        : 13px;
+}
+
+.edit:hover {
+  text-decoration    : none;
+  background-color   : #0091cb;
+  color              : #fff;
+  -webkit-transition : color .2s linear;
+}
+
+.comments-header {
+  border-bottom : 1px #ccc solid;
+  font-size     : 20px;
+}
+
+.comment {
+  border-bottom : 1px #ccc dashed;
+  border-left   : transparent;
+  border-right  : transparent;
+}
+
+.comment .comment-title {
+  margin : 15px 0 0 15px;
+}
+
+.comment .comment-content {
+  margin : 15px 0 0 30px;
+}
+
+/*footer*/
+.blog-footer {
+  padding          : 40px 0;
+  color            : #999;
+  text-align       : center;
+  background-color : #f9f9f9;
+  border-top       : 1px solid #e5e5e5;
+  font-size        : 14px;
+}
+
+.blog-footer a {
+  background-color : transparent;
+  color            : #337ab7;
+  text-decoration  : none;
+}
+
+/*paging style*/
+.blog-paging .prepage a {
+  float           : left;
+  text-decoration : none;
+  padding         : .5em 1em;
+  color           : #428bca;
+  font-weight     : bold;
+}
+
+.blog-paging .nextpage a {
+  float           : right;
+  text-decoration : none;
+  padding         : .5em 1em;
+  color           : #428bca;
+  font-weight     : bold;
+}
+
+.blog-paging .prepage.ft-explain {
+  color           : #999;
+  float           : left;
+  text-decoration : none;
+  padding         : .5em 1em;
+  font-weight     : bold;
+}
+
+.blog-paging .nextpage.ft-explain {
+  color           : #999;
+  float           : right;
+  text-decoration : none;
+  padding         : .5em 1em;
+  font-weight     : bold;
+}
+
+.blog-paging .prepage a:hover, .blog-paging .nextpage a:hover {
+  text-decoration    : none;
+  color              : #ffce74;
+  -webkit-transition : color .2s linear;
+}
+
+/* archive style */
+.archive {
+  list-style  : none;
+  line-height : 28px;
+}
+
+.archive h3 {
+  margin          : 0.5em 0;
+  text-decoration : none;
+}
+
+.archive time {
+  float        : left;
+  font-size    : 14px;
+  color        : #999999;
+  margin-right : 1.2em;
+}
+
+.archive a {
+  color           : #318fd6;
+  text-decoration : none;
+}
+
+.archive a:hover {
+  color           : #ffce74;
+  text-decoration : none;
+}
+
+/* tag style */
+#tag1, #tag2, #tag3 {
+  width     : 100px;
+  text-size : 16px;
+  display   : inline;
+}
+
+.tag {
+  background-color : #ff0000;
+  border-radius    : 3px;
+  font-size        : 14px;
+  color            : #ffffff;
+  display          : inline-block;
+  padding          : 0 5px;
+  margin-bottom    : 8px;
+}
+
+.tag:hover {
+  text-decoration    : none;
+  background-color   : #ffffff;
+  color              : #000000;
+  -webkit-transition : color .2s linear;
+}
+
