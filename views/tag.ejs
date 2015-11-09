@@ -1,0 +1,15 @@
+<%- include header %>
+<ul class="archive">
+	<% var lastYear = 0 %>
+	<% posts.forEach(function (post, index) { %>
+	<% if (lastYear != post.time.year) { %>
+	<li class="archive-year"><h3><%= post.time.year %></h3></li>
+	<% lastYear = post.time.year %>
+	<% } %>
+	<li class="col-sm-3">
+		<time><%= post.time.day %></time>
+	</li>
+	<li class="col-sm-9"><a href="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>"><%= post.title %></a></li>
+	<% }) %>
+</ul>
+<%- include footer %>
