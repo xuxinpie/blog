@@ -61,6 +61,7 @@ nav a:hover {
 article {
   font-size: 16px;
   padding-top: .5em;
+  position: relative;
 }
 article form {
   width: 500px;
@@ -117,6 +118,9 @@ article .article-author:hover {
   /*color           : #ffce74;*/
   text-decoration: underline;
 }
+.article-content {
+  margin: 2em 0;
+}
 /* article page style */
 p.info {
   font-size: 14px;
@@ -151,9 +155,13 @@ p.info {
   color: #fff;
   -webkit-transition: color .2s linear;
 }
-.comments-header {
+p.article-info {
   border-bottom: 1px #ccc solid;
-  font-size: 20px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+span.info {
+  font-size: 14px;
 }
 .comment {
   border-bottom: 1px #ccc dashed;
@@ -165,6 +173,10 @@ p.info {
 }
 .comment .comment-content {
   margin: 15px 0 0 30px;
+}
+form#J_CommentForm {
+  position: relative;
+  top: -3em;
 }
 /*footer*/
 .blog-footer {

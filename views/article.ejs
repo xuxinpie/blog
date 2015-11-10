@@ -18,11 +18,11 @@
 		<span><a class="edit" href="/edit/<%= doc.name %>/<%= doc.time.day %>/<%= doc.title %>">编辑</a></span>
 		<span><a class="edit" href="/remove/<%= doc.name %>/<%= doc.time.day %>/<%= doc.title %>">删除</a></span>
 	</div>
-
 	<% } %>
 </div>
 <div class="article-content">
 	<p><%- doc.post %></p>
 </div>
+<p class="article-info">阅读：<%= doc.pv %> | 评论：<%= doc.comments.length %></p>
 <%- include comment %>
 <%- include footer %>

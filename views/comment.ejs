@@ -2,15 +2,6 @@
 <!-- 判断forEach对象是否存在 -->
 <!-- 用"="号输出,就会被escapge转义编码 -->
 <!-- 用"-"输出原始内容, 不会被escape -->
-
-<div class="comments-header">COMMENTS(
-	<% if (doc.comments) { %>
-		<%= doc.comments.length %>
-	<%} else {%>
-		0
-	<% } %>
-	)
-</div>
 <div class="comments">
 	<% if (doc.comments) { %>
 	<% doc.comments.forEach(function (comment, index) { %>
@@ -23,7 +14,7 @@
 	<% } %>
 </div>
 
-<form id="J_PostForm" method="post">
+<form id="J_CommentForm" method="post">
 	<% if (user) { %>
 	<input type="hidden" name="name" value="<%= user.name %>"/><br/>
 	<input type="hidden" name="email" value="<%= user.email %>"/><br/>
@@ -33,6 +24,7 @@
 	<input type="hidden" name="email"/><br/>
 	<input type="hidden" name="website" value="http://"/><br/>
 	<% } %>
+	<h4 class="comment-header">发表评论</h4>
 	<textarea name="content" rows="5" cols="60"></textarea><br/>
 	<button type="submit" class="btn btn-blue">留言</button>
 </form>
