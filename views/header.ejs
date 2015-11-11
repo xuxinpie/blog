@@ -16,6 +16,7 @@
 		<span><a title="主页" href="/">home</a></span>
 		<span><a title="存档" href="/archive">archive</a></span>
 		<span><a title="标签" href="/tags">tags</a></span>
+		<span><a title="友情链接" href="/links">links</a></span>
 		<% if (user) { %>
 		<span><a title="上传" href="/upload">upload</a></span>
 		<span><a title="发表" href="/post">post</a></span>
@@ -26,6 +27,41 @@
 		<% } %>
 
 	</nav>
+
+	<div class="tools">
+		<span>
+			<form action="/search" method="GET">
+				<input class="search" type="text" name="keyword" placeholder=" SEARCH"/>
+			</form>
+		</span>
+
+		<div class="sidebar-module sidebar-module-inset">
+			<h4>About</h4>
+
+			<p>Welcome to <em>Xinux's Home Page</em>, This blog demo is made by Xinux, thanks for giving me your
+				sincerely suggestion. You can write it down in comments</p>
+		</div>
+
+		<div class="linkList">
+			<ul>
+				<li class="linkList-item">LINKS</li>
+				<li class="linkList-item">
+		<span class="links-icon">
+			<a href="https://twitter.com" target="_blank"><img src="/images/twitter-icon.png"></a>
+		</span>
+					<a href="https://twitter.com/HelloXinux">Xinux's Twitter</a>
+				</li>
+				<li class="linkList-item">
+		<span class="links-icon">
+			<a href="https://github.com" target="_blank"><img src="/images/github-icon.png"></a>
+		</span>
+					<a href="https://github.com/xuxinpie">Xinux's GitHub</a>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+
 
 	<article class="clearfix">
 		<% if (success) { %>

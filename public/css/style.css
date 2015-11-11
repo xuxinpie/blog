@@ -20,14 +20,21 @@ body {
   margin: 2em auto;
   padding: 0 2em;
   width: 600px;
+  position: relative;
 }
 p {
-  line-height: 24px;
   margin: 1em 0;
 }
 header {
   padding: .5em 0;
   border-bottom: 1px solid #cccccc;
+}
+ul {
+  list-style: none;
+}
+a,
+a:hover {
+  text-decoration: none;
 }
 .form-group {
   margin-bottom: 15px;
@@ -49,7 +56,6 @@ nav {
 nav a {
   font-size: 14px;
   display: block;
-  text-decoration: none;
   padding: .7em .1em;
   color: #00B7FF;
 }
@@ -57,6 +63,32 @@ nav a:hover {
   background-color: #00B6E3;
   color: #f9f9f9;
   -webkit-transition: color .2s linear;
+}
+div.tools {
+  float: right;
+  font-size: 1em;
+  margin-left: -20em;
+  width: 35em;
+  position: relative;
+  right: -38em;
+}
+div.tools .search {
+  width: 18em;
+  height: 2em;
+  text-align: left;
+  font-size: 12px;
+  margin: 1em 0;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+}
+div.tools .sidebar-module-inset {
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+div.tools .sidebar-module-inset p {
+  font-size: 10px;
+  line-height: 1.5em;
 }
 article {
   font-size: 16px;
@@ -190,19 +222,16 @@ form#J_CommentForm {
 .blog-footer a {
   background-color: transparent;
   color: #337ab7;
-  text-decoration: none;
 }
 /*paging style*/
 .blog-paging .prepage a {
   float: left;
-  text-decoration: none;
   padding: .5em 1em;
   color: #428bca;
   font-weight: bold;
 }
 .blog-paging .nextpage a {
   float: right;
-  text-decoration: none;
   padding: .5em 1em;
   color: #428bca;
   font-weight: bold;
@@ -223,7 +252,6 @@ form#J_CommentForm {
 }
 .blog-paging .prepage a:hover,
 .blog-paging .nextpage a:hover {
-  text-decoration: none;
   color: #ffce74;
   -webkit-transition: color .2s linear;
 }
@@ -244,11 +272,9 @@ form#J_CommentForm {
 }
 .archive a {
   color: #318fd6;
-  text-decoration: none;
 }
 .archive a:hover {
   color: #ffce74;
-  text-decoration: none;
 }
 /* tag style */
 #tag1,
@@ -272,4 +298,24 @@ form#J_CommentForm {
   background-color: #ffffff;
   color: #000000;
   -webkit-transition: color .2s linear;
+}
+/*friendly link style*/
+.linkList {
+  margin: 2em 0;
+}
+.links-icon {
+  display: inline;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.links-icon img {
+  width: 30px;
+  height: 30px;
+}
+.linkList-item {
+  margin: 1em 0;
+  font-size: 14px;
 }

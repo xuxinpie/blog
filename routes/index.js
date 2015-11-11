@@ -266,6 +266,24 @@ module.exports = function (app) {
 		});
 	});
 
+	//根据搜索title查询对应文章的页面路由
+	app.get('/search', function (req, res) {
+		Post.search(req.query.keyword, function (err, posts) {
+			if (err) {
+				req.flash('error', err);
+				return res.redirect('/');
+			}
+			res.render('search', {
+				//title: "SEARCH:" + req.query.keyword,
+				title: "SEARCH RESULT",
+				posts: posts,
+				user: req.session.user,
+				success: req.flash('success').toString(),
+				error: req.flash('error').toString()
+			});
+		});
+	});
+
 	//用户页面的路由规则 get 10 articles of one user per page
 	app.get('/u/:name', function (req, res) {
 		var page = req.query.p ? parseInt(req.query.p) : 1;
@@ -379,6 +397,16 @@ module.exports = function (app) {
 			}
 			req.flash('success', '删除成功!');
 			res.redirect('/');
+		});
+	});
+
+	//get friendly link list
+	app.get('/links', function (req, res) {
+		res.render('links', {
+			title: 'Friendly Link List',
+			user: req.session.user,
+			success: req.flash('success').toString(),
+			error: req.flash('error').toString()
 		});
 	});
 
