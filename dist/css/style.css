@@ -102,7 +102,6 @@ article {
 article form {
   width: 500px;
   float: left;
-  position: absolute;
   top: 30px;
 }
 article .form-horizontal .form-group .control-label {
