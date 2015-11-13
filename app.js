@@ -14,6 +14,11 @@ var flash = require('connect-flash');
 //实现multer文件上传功能
 var multer = require('multer');
 
+//记录请求的日志以及错误日志
+var fs = require('fs');
+var accessLog = fs.createWriteStream('access.log', {flags: 'a'});
+var errorLog = fs.createWriteStream('error.log', {flags: 'a'});
+
 var app = express();
 
 app.set('port', process.env.PORT || 3000);
@@ -37,6 +42,8 @@ app.set('view engine', 'ejs');
 
 //load log middleware
 app.use(logger('dev'));
+//write down log into a file
+app.use(logger({stream: accessLog}));
 //load json parse middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -67,6 +74,13 @@ app.use(multer({
 		return fileName;
 	}
 }));
+
+//express没有记录错误日志的功能,需要写一个简单的错误日志记录middle ware
+app.use(function (err, req, res, next) {
+	var meta = '[' + new Date() + '] ' + req.url + '\n';
+	errorLog.write(meta + err.stack + '\n');
+	next();
+});
 
 //调用了index.js导出的函数
 routes(app);
