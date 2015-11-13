@@ -12,6 +12,7 @@
 		<% }) %>
 		<% } %>
 	</p>
+
 	<!-- 判断当前用户是否有编辑删除这篇文章的权限,非本人无法操作 -->
 	<% if (user && (user.name == doc.name)) { %>
 	<div class="operation">
@@ -19,10 +20,45 @@
 		<span><a class="edit" href="/remove/<%= doc.name %>/<%= doc.time.day %>/<%= doc.title %>">删除</a></span>
 	</div>
 	<% } %>
+	<% var flag = 1 %>
+	<% if (user && (user.name != doc.name)) { %>
+	<% if (doc.reprint_info && (doc.reprint_info.reprint_from != undefined) && (user.name == doc.reprint_info.reprint_from.name)) { %>
+	<% flag = 0 %>
+	<% } %>
+	<% if (doc.reprint_info && (doc.reprint_info.reprint_to != undefined)) { %>
+	<% doc.reprint_info.reprint_to.forEach(function (reprint_to, index) { %>
+	<% if (user.name == reprint_to.name) { %>
+	<% flag = 0 %>
+	<% } %>
+	<% }) %>
+	<% } %>
+	<% } else { %>
+	<% flag = 0 %>
+	<% } %>
+	<% if (flag) { %>
+	<div class="operation">
+		<span><a class="edit" href="/reprint/<%= doc.name %>/<%= doc.time.day %>/<%= doc.title %>">转载</a></span>
+	</div>
+	<% } %>
+</div>
+<div class="reprint">
+	<% if (doc.reprint_info) { %>
+	<% if (doc.reprint_info.reprint_from) { %>
+	<br>
+	<a href="/u/<%= doc.reprint_info.reprint_from.name %>/<%= doc.reprint_info.reprint_from.day %>/<%= doc.reprint_info.reprint_from.title %>">原文链接</a>
+	<% } %>
+	<% } %>
 </div>
 <div class="article-content">
 	<p><%- doc.post %></p>
 </div>
-<p class="article-info">阅读：<%= doc.pv %> | 评论：<%= doc.comments.length %></p>
+<p class="article-info">阅读：<%= doc.pv %> | 评论：<%= doc.comments.length %> | 转载：
+	<% if (doc.reprint_info && doc.reprint_info.reprint_to) { %>
+	<%= doc.reprint_info.reprint_to.length %>
+	<% } else { %>
+	<%= 0 %>
+	<% } %>
+</p>
+
 <%- include comment %>
 <%- include footer %>

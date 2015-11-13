@@ -17,10 +17,11 @@ body {
   font-family: "lantinghei sc", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .main {
-  margin: 2em auto;
+  margin: 2em auto 6em;
   padding: 0 2em;
   width: 600px;
   position: relative;
+  min-height: 400px;
 }
 p {
   margin: 1em 0;
@@ -66,20 +67,23 @@ nav a:hover {
 }
 div.tools {
   float: right;
-  font-size: 1em;
+  font-size: 12px;
   margin-left: -20em;
-  width: 35em;
-  position: relative;
-  right: -38em;
+  position: absolute;
+  right: -19em;
+  width: 18em;
 }
 div.tools .search {
   width: 18em;
   height: 2em;
   text-align: left;
   font-size: 12px;
-  margin: 1em 0;
+  margin: 0.5em 0 1.5em;
   border-radius: 5px;
   border: 1px solid #cccccc;
+}
+div.tools form {
+  width: 50px;
 }
 div.tools .sidebar-module-inset {
   padding: 15px;
@@ -98,6 +102,8 @@ article {
 article form {
   width: 500px;
   float: left;
+  position: absolute;
+  top: 30px;
 }
 article .form-horizontal .form-group .control-label {
   font-size: 14px;
@@ -173,6 +179,9 @@ p.info {
   border-color: #0091cb;
 }
 /*article edit & delete style*/
+div.operation {
+  margin-top: 10px;
+}
 .edit {
   margin: 3px;
   padding: 2px 5px;
@@ -224,6 +233,9 @@ form#J_CommentForm {
   color: #337ab7;
 }
 /*paging style*/
+.blog-paging {
+  margin-top: 30px;
+}
 .blog-paging .prepage a {
   float: left;
   padding: .5em 1em;
@@ -251,7 +263,7 @@ form#J_CommentForm {
   font-weight: bold;
 }
 .blog-paging .prepage a:hover,
-.blog-paging .nextpage a:hover {
+.blog-paging .blog-paging .nextpage a:hover {
   color: #ffce74;
   -webkit-transition: color .2s linear;
 }
@@ -303,19 +315,50 @@ form#J_CommentForm {
 .linkList {
   margin: 2em 0;
 }
-.links-icon {
+.linkList-item {
+  margin: 1em 0;
+  font-size: 14px;
+}
+.linkList-item .links-icon {
   display: inline;
-  position: relative;
+  position: absolute;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   overflow: hidden;
 }
-.links-icon img {
+.linkList-item .links-icon img {
   width: 30px;
   height: 30px;
 }
-.linkList-item {
-  margin: 1em 0;
+.linkList-item .links-text {
+  position: relative;
+  display: inline-block;
+  left: 3em;
+  top: 0.3em;
+}
+div.picture-404 {
+  margin: auto;
+  text-align: center;
+}
+#J_Time {
   font-size: 14px;
+  color: #00BFFF;
+}
+div.text-404 {
+  text-align: center;
+  font-size: 12px;
+}
+.l_head {
+  float: left;
+  position: relative;
+  right: 1em;
+  box-shadow: 0px 1px 4px #888;
+}
+.r_head {
+  float: right;
+  position: relative;
+  bottom: 3em;
+  left: -1em;
+  box-shadow: 0px 1px 4px #888;
 }

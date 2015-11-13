@@ -6,7 +6,7 @@
 	<% if (doc.comments) { %>
 	<% doc.comments.forEach(function (comment, index) { %>
 	<div class="comment">
-		<div class="comment-title"><a href="<%= comment.website %>"><%= comment.name %></a>
+		<div class="comment-title"><img src="<%= comment.head %>" class="l_head" /><a href="<%= comment.website %>"><%= comment.name %></a>
 			<span class="info"> 回复于 <%= comment.time %></span></div>
 		<div class="comment-content"><%- comment.content %></div>
 	</div>

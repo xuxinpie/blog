@@ -35,6 +35,8 @@ gulp.task('watchStyle', ['blog-less'], function () {
 
 //将public目录下的js进行混淆和压缩,并合并的一个blog.js文件中,放到dist目录下
 gulp.task('scripts', function () {
+	//排除delayRedirect.js
+	//gulp.src(['./public/js/*.js', '!./public/js/delayRedirect.js'])
 	gulp.src('./public/js/*.js')
 			.pipe(jshint())
 			.pipe(jshint.reporter('default'))
